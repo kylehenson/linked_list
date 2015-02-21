@@ -1,22 +1,39 @@
-# If there is not a node, set the head node equal to the new data.
-## If node.nil?
-## @head = Node.new(data)
-# When a new node is created and it is not the head node,
-## the new node becomes the current node and the next node becomes next node
-#
-
+require 'pry'
 class LinkedList
+  attr_reader :count,
+              :head
 
+  def count
+    if
+      @head.nil?
+        0
+    else
+      @head != nil && @next_node == nil
+        1
+    end
+  end
+
+  def push(data)
+    if @head.nil?
+      @head = Node.new(data, nil)
+    end
+  end
 
 end
 
 
 class Node
-  attr_reader :data
+  attr_reader   :data
+  attr_accessor :next_node
 
-  def initialize(data)
+  def initialize(data, next_node=nil)
     @data = data
+    @next_node = next_node
   end
+
+  # def next_node
+  #
+  # end
 
 end
 

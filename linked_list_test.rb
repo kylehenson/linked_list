@@ -20,34 +20,32 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_nodes_have_next_node
-    skip
     n1 = Node.new("pizza")
     n2 = Node.new("cats")
     n1.next_node = n2
+
     assert_equal "cats", n1.next_node.data
     assert_equal Node, n1.next_node.class
   end
 
   def test_it_accepts_next_node_on_init
-    skip
     n1 = Node.new("pizza", Node.new("cats"))
+
     assert_equal "cats", n1.next_node.data
     assert_equal Node, n1.next_node.class
   end
 
   def test_it_starts_with_zero_elements
-    skip
     assert_equal 0, list.count
   end
 
   def test_a_new_list_starts_with_nil_head
-    skip
     assert_equal nil, LinkedList.new.head
   end
 
   def test_it_pushes_a_single_element_onto_a_list
-    skip
     list.push("pizza")
+
     assert_equal "pizza", list.head.data
     assert_equal 1, list.count
   end
@@ -56,6 +54,7 @@ class LinkedListTest < Minitest::Test
     skip
     list.push("pizza")
     assert_equal "pizza", list.head.data
+
     list.push("stromboli")
     assert_equal "stromboli", list.head.next_node.data
   end
@@ -64,8 +63,10 @@ class LinkedListTest < Minitest::Test
     skip
     list.push("hello")
     assert_equal "hello", list.head.data
+
     list.push("world")
     assert_equal "world", list.head.next_node.data
+
     list.push("today")
     assert_equal "world", list.head.next_node.data
     assert_equal "today", list.head.next_node.next_node.data
@@ -78,6 +79,7 @@ class LinkedListTest < Minitest::Test
     list.push("world")
     list.push("today")
     list.push("pizza")
+
     assert_equal "today", list.head.next_node.next_node.data
     assert_equal "pizza", list.head.next_node.next_node.next_node.data
     assert_equal 4, list.count
@@ -89,6 +91,7 @@ class LinkedListTest < Minitest::Test
     list.push("world")
     list.push("today")
     output = list.pop
+
     assert_equal "today", output
     assert_equal 2, list.count
   end
@@ -97,6 +100,7 @@ class LinkedListTest < Minitest::Test
     skip
     list.push("hello")
     output = list.pop
+
     assert_equal "hello", output
     assert_equal 0, list.count
   end
@@ -110,6 +114,7 @@ class LinkedListTest < Minitest::Test
     skip
     list.push("hello")
     list.delete("hello")
+
     assert_equal 0, list.count
   end
 
@@ -118,6 +123,7 @@ class LinkedListTest < Minitest::Test
     list.push("hello")
     list.push("world")
     list.delete("today")
+
     assert_equal 2, list.count
   end
 
@@ -127,6 +133,7 @@ class LinkedListTest < Minitest::Test
     list.push("world")
     list.push("today")
     list.delete("today")
+
     assert_equal 2, list.count
   end
 
@@ -136,6 +143,7 @@ class LinkedListTest < Minitest::Test
     list.push("world")
     list.push("today")
     list.delete("world")
+
     assert_equal 2, list.count
     assert_equal "today", list.pop
     assert_equal "hello", list.pop
@@ -147,6 +155,7 @@ class LinkedListTest < Minitest::Test
     list.push("world")
     list.push("today")
     list.delete("hello")
+
     assert_equal 2, list.count
     assert_equal "today", list.pop
     assert_equal "world", list.pop
@@ -162,6 +171,7 @@ class LinkedListTest < Minitest::Test
     list.push("hello")
     list.push("world")
     list.push("today")
+
     assert_equal ["hello", "world", "today"], list.to_a
   end
 
@@ -170,6 +180,7 @@ class LinkedListTest < Minitest::Test
     list.push("hello")
     list.push("world")
     node = list.last_node
+
     assert_equal "world", node.data
   end
 
@@ -177,6 +188,7 @@ class LinkedListTest < Minitest::Test
     skip
     list.push("hello")
     list.push("world")
+
     assert_equal "world", list.last_node.data
     assert_equal "world", list.head_node.next_node.data
   end
@@ -184,6 +196,7 @@ class LinkedListTest < Minitest::Test
   def test_next_node_for_the_last_node_is_nil
     skip
     list.push("world")
+
     assert_nil list.last_node.next_node
   end
 
@@ -191,6 +204,7 @@ class LinkedListTest < Minitest::Test
     skip
     list.push("hello")
     list.push("world")
+
     assert_equal true, list.include?("hello")
     assert_equal false, list.include?("bogus")
   end
@@ -248,6 +262,7 @@ class LinkedListTest < Minitest::Test
     list.push("world")
     list.push("today")
     list.push("tomorrow")
+
     assert_equal 3, list.distance("hello", "today")
     assert_equal 2, list.distance("pizza", "today")
     assert_equal 2, list.distance("hello", "world")
