@@ -6,14 +6,9 @@
 #
 
 class LinkedList
-  attr_accessor :counter
 
-  def initialize(counter=0)
-    @counter = counter
-  end
 
 end
-
 
 
 class Node
@@ -24,3 +19,33 @@ class Node
   end
 
 end
+
+
+
+# class LinkedList
+#   attr_reader :count
+#   attr_accessor :data
+#
+#   def initialize(count=0)
+#     @count = count
+#   end
+#
+#   def head
+#
+#   end
+#
+#   def push(data)
+#
+#   end
+# end
+#
+#
+#
+# class Node
+#   attr_reader :data
+#
+#   def initialize(data)
+#     @data = data
+#   end
+#
+# end
