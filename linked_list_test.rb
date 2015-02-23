@@ -51,7 +51,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_it_pushes_two_elements
-    skip
     list.push("pizza")
     assert_equal "pizza", list.head.data
 

@@ -14,8 +14,14 @@ class LinkedList
   end
 
   def push(data)
+    current_node = @head
+
     if @head.nil?
       @head = Node.new(data, nil)
+      # binding.pry
+    else
+      @head.next_node = Node.new(data, nil)
+      current_node = @next_node
     end
   end
 
